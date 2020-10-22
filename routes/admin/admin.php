@@ -5,10 +5,15 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'],function(){
     Route::get('login','LoginController@index')->name('admin.login');
     //登陆处理
     Route::post('login','LoginController@login')->name('admin.login');
-    //首页展示
-    Route::get('index','IndexController@index')->name('admin.index');
-    //欢迎页面
-    Route::get('welcome','IndexController@welcome')->name('admin.welcome');
-    //用户退出
-    Route::get('logout','IndexController@logout')->name('admin.logout');
+
+    Route::group(['middleware' => ['ckadmin']],function(){
+        //首页展示
+        Route::get('index','IndexController@index')->name('admin.index');
+        //欢迎页面
+        Route::get('welcome','IndexController@welcome')->name('admin.welcome');
+        //用户退出
+        Route::get('logout','IndexController@logout')->name('admin.logout');
+        //用户列表
+        Route::get('user/index','UserController@index')->name('admin.user.index');
+    });
 });

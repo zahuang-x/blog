@@ -46,7 +46,7 @@
 {{--      </div>--}}
       <div class="row cl">
         <div class="formControls col-xs-8 col-xs-offset-3">
-          <input name="" type="submit" class="btn btn-success radius size-L" value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;録&nbsp;">&nbsp;&nbsp;&nbsp;&nbsp;
+          <input name="" type="submit" class="btn btn-success radius size-L" value="&nbsp;ログイン&nbsp;">&nbsp;&nbsp;&nbsp;&nbsp;
           <input name="" type="reset" class="btn btn-default radius size-L" value="&nbsp;キャンセル&nbsp;">
         </div>
       </div>

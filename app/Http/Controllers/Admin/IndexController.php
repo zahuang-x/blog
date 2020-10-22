@@ -17,6 +17,6 @@ class IndexController extends Controller
 
     public function logout(){
         auth()->logout();
-        return redirect(route('admin.login'))->with('success','ログインしてください');
+        return redirect(route('admin.login'))->with('success','再登録してください');
     }
 }

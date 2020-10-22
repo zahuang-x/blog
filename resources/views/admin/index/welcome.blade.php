@@ -10,30 +10,30 @@
     <link rel="stylesheet" type="text/css" href="/admin/static/h-ui.admin/skin/default/skin.css" id="skin" />
     <link rel="stylesheet" type="text/css" href="/admin/static/h-ui.admin/css/style.css" />
 
-    <title>我的桌面</title>
+    <title>マイテーブル</title>
 </head>
 <body>
 <div class="page-container">
-    <p class="f-20 text-success">欢迎使用H-ui.admin <span class="f-14">v3.1</span>后台模版！</p>
-    <p>登录次数：18 </p>
-    <p>上次登录IP：222.35.131.79.1  上次登录时间：2014-6-14 11:19:55</p>
+    <p class="f-20 text-success">ようこそH-ui.admin <span class="f-14">v3.1</span>バークエンドフレームワーク</p>
+    <p>ログイン回数：18 </p>
+    <p>前回ログインIP：222.35.131.79.1  前回ログイン時間：2014-6-14 11:19:55</p>
     <table class="table table-border table-bordered table-bg">
         <thead>
         <tr>
-            <th colspan="7" scope="col">信息统计</th>
+            <th colspan="7" scope="col">コミュニケーション統計</th>
         </tr>
         <tr class="text-c">
-            <th>统计</th>
-            <th>资讯库</th>
-            <th>图片库</th>
-            <th>产品库</th>
-            <th>用户</th>
-            <th>管理员</th>
+            <th>統計</th>
+            <th>インフォメーション</th>
+            <th>画像</th>
+            <th>商品</th>
+            <th>ユーザー</th>
+            <th>管理員</th>
         </tr>
         </thead>
         <tbody>
         <tr class="text-c">
-            <td>总数</td>
+            <td>総数</td>
             <td>92</td>
             <td>9</td>
             <td>0</td>
@@ -57,7 +57,7 @@
             <td>0</td>
         </tr>
         <tr class="text-c">
-            <td>本周</td>
+            <td>本週</td>
             <td>2</td>
             <td>0</td>
             <td>0</td>
@@ -65,7 +65,7 @@
             <td>0</td>
         </tr>
         <tr class="text-c">
-            <td>本月</td>
+            <td>今月</td>
             <td>2</td>
             <td>0</td>
             <td>0</td>
@@ -77,24 +77,24 @@
     <table class="table table-border table-bordered table-bg mt-20">
         <thead>
         <tr>
-            <th colspan="2" scope="col">服务器信息</th>
+            <th colspan="2" scope="col">サーバ情報</th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <th width="30%">服务器计算机名</th>
+            <th width="30%">サーバ名</th>
             <td><span id="lbServerName">http://127.0.0.1/</span></td>
         </tr>
         <tr>
-            <td>服务器IP地址</td>
+            <td>サーバIPアドレス</td>
             <td>192.168.1.1</td>
         </tr>
         <tr>
-            <td>服务器域名</td>
+            <td>サーバドメイン名</td>
             <td>www.h-ui.net</td>
         </tr>
         <tr>
-            <td>服务器端口 </td>
+            <td>サーバポート</td>
             <td>80</td>
         </tr>
         <tr>
