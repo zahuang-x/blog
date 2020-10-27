@@ -6,11 +6,16 @@
     <link rel="stylesheet" type="text/css" href="/admin/static/h-ui.admin/css/H-ui.admin.css" />
     <link rel="stylesheet" type="text/css" href="/admin/lib/Hui-iconfont/1.0.8/iconfont.css" />
     <link rel="stylesheet" type="text/css" href="/admin/static/h-ui.admin/skin/default/skin.css" id="skin" />
-    <link rel="stylesheet" type="text/css" href="/admin/static/h-ui.admin/css/style.css" />
-    <title>用户管理</title>
+    <link rel="stylesheet" type="text/css" href="/css/pagination.css" />
+    <title>ユーザー管理</title>
 </head>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> ホーム <span class="c-gray en">&gt;</span> ユーザーセンター <span class="c-gray en">&gt;</span> ユーザー管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> ホーム
+    <span class="c-gray en">&gt;</span> ユーザーセンター
+    <span class="c-gray en">&gt;</span> ユーザーリスト
+    <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
+</nav>
+@include('admin.common.msg')
 <div class="page-container">
     <div class="text-c">日付範囲：
         <input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}' })" id="datemin" class="input-text Wdate" style="width:120px;">
@@ -19,7 +24,16 @@
         <input type="text" class="input-text" style="width:250px" placeholder="ユーザー名、携帯を入力してください" id="" name="">
         <button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> サーチ</button>
     </div>
-    <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> ロート削除</a> <a href="javascript:;" onclick="member_add('添加用户','member-add.html','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> ユーザー追加</a></span> <span class="r">共有数据：<strong>88</strong> 条</span> </div>
+    <div class="cl pd-5 bg-1 bk-gray mt-20">
+        <span class="l">
+            <a class="btn btn-danger radius" onclick="deleteAll()">
+                <i class="Hui-iconfont">&#xe6e2;</i> ロート削除
+            </a>
+            <a href="{{ route('admin.user.create') }}" class="btn btn-primary radius">
+                <i class="Hui-iconfont">&#xe600;</i> ユーザー追加
+            </a>
+        </span>
+    </div>
     <div class="mt-20">
         <table class="table table-border table-bordered table-hover table-bg table-sort">
             <thead>
@@ -57,6 +71,8 @@
             @endforeach
             </tbody>
         </table>
+        {{--分页--}}
+        {{$data->links()}}
     </div>
 </div>
 <!--_footer 作为公共模版分离出去-->
