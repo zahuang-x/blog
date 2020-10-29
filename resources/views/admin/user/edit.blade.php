@@ -3,39 +3,46 @@
 @section('cnt')
     <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> ホーム
         <span class="c-gray en">&gt;</span> ユーザーセンター
-        <span class="c-gray en">&gt;</span> ユーザー追加
+        <span class="c-gray en">&gt;</span> ユーザー更新
         <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
     </nav>
     <article class="page-container">
         @include('admin.common.validate')
-        <form action="{{route('admin.user.store')}}" method="post" class="form form-horizontal" id="form-member-add">
+        <form action="{{route('admin.user.edit',['id'=>$model->id])}}" method="post" class="form form-horizontal" id="form-member-add">
+            {{method_field('PUT')}}
             {{ csrf_field() }}
             <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>ユーザー名：</label>
+                <label class="form-label col-xs-4 col-sm-3">ユーザー名：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" class="input-text" name="username" value="{{old('username')}}">
+                    {{$model->username}}
                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>名前：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" class="input-text" name="truename" value="{{old('truename')}}">
+                    <input type="text" class="input-text" name="truename" value="{{$model->truename}}">
                 </div>
             </div>
             <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>パスワード：</label>
+                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>古パスワード：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" class="input-text" name="spassword" autocomplete="off">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3">新パスワード：</label>
                 <div class="formControls col-xs-8 col-sm-9">
                     <input type="text" class="input-text" name="password" id="password" autocomplete="off">
                 </div>
             </div>
             <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>パスワード確認：</label>
+                <label class="form-label col-xs-4 col-sm-3">新パスワード確認：</label>
                 <div class="formControls col-xs-8 col-sm-9">
                     <input type="text" class="input-text" name="password_confirmation" autocomplete="off">
                 </div>
             </div>
             <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>性别：</label>
+                <label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>性别：</label>
                 <div class="formControls col-xs-8 col-sm-9 skin-minimal">
                     <div class="radio-box">
                         <input name="sex" type="radio" value="男性" checked>
@@ -48,20 +55,20 @@
                 </div>
             </div>
             <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>携帯：</label>
+                <label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>携帯：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" class="input-text" name="phone" value="{{old('phone')}}">
+                    <input type="text" class="input-text" name="phone" value="{{$model->phone}}">
                 </div>
             </div>
             <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>メール：</label>
+                <label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>メール：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="email" class="input-text" placeholder="" name="email" value="{{old('email')}}">
+                    <input type="email" class="input-text" placeholder="" name="email" value="{{$model->email}}">
                 </div>
             </div>
             <div class="row cl">
                 <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                    <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;追加&nbsp;&nbsp;">
+                    <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;更新&nbsp;&nbsp;">
                 </div>
             </div>
         </form>
@@ -85,7 +92,7 @@
                 truename:{
                     required:true
                 },
-                password:{
+                spassword:{
                     required: true
                 },
                 password_confirmation:{
@@ -102,11 +109,11 @@
                 truename:{
                     required:'名前は　必ず指定してください'
                 },
-                password:{
-                    required:'パスワードは　必ず指定してください'
+                spassword:{
+                    required:'古パスワードは　必ず指定してください'
                 },
                 password_confirmation:{
-                    equalTo:'パスワードは　再確認してください'
+                    equalTo:'新パスワードは　再確認してください'
                 },
                 email:{
                     email:'正しくメールを入力してください'

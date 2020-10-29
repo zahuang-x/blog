@@ -19,5 +19,16 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'],function(){
         Route::get('user/add','UserController@create')->name('admin.user.create');
         //用户添加处理
         Route::post('user/add','UserController@store')->name('admin.user.store');
+        // 删除用户
+        Route::delete('user/del/{id}', 'UserController@del')->name('admin.user.del');
+        //用户还原
+        Route::get('user/restore/{id}','UserController@restore')->name('admin.user.restore');
+        //全选删除
+        Route::delete('user/delall','UserController@delall')->name('admin.user.delall');
+        //修改用户展示
+        Route::get('user/edit/{id}','UserController@edit')->name('admin.user.edit');
+        //修改用户处理
+        Route::put('user/edit/{id}','UserController@update')->name('admin.user.edit');
+
     });
 });
